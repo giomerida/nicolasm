@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // --- CONFIGURACIÓN DEL CORREO ---
     // Reemplaza esta dirección con el correo donde quieres recibir los mensajes
     $destinatario = "giovannimerida92@gmail.com";
-    $asunto = "Nuevo Mensaje del Formulario de Contacto - Nicolas Máquiavelo";
+    $asunto = "Nuevo Mensaje del Formulario de Nicolas Máquiavelo";
     // ---------------------------------
 
     // Limpia y valida los datos recibidos del formulario
@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $cuerpo_mensaje .= "Teléfono: " . $telefono . "\n";
 
     // Construye las cabeceras del correo
-    $headers = "From: no-reply@prepanicolasmaquiavelo.edu.mx" . "\r\n" .
+    $headers = "From: no-reply@nicolasmaquiavelo.edu.mx" . "\r\n" .
                "Reply-To: " . $correo . "\r\n" .
                "X-Mailer: PHP/" . phpversion();
 
