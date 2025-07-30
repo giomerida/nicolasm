@@ -1,0 +1,453 @@
+/* Variables de color */
+:root {
+    --color-rojo-institucional: #DD4514; /* Naranja Institucional */
+    --color-azul-institucional: #24304B; /* Un azul oscuro y serio */
+    --color-blanco: #FFFFFF;
+    --color-gris-claro: #f4f4f4;
+    --color-texto-principal: #333333;
+    --color-texto-secundario: #555555;
+}
+
+/* Estilos Generales */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: var(--color-texto-principal);
+    background-color: var(--color-blanco);
+}
+
+.contenedor {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+    overflow: hidden; /* Para contener floats si los hubiera */
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    color: var(--color-azul-institucional);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-rojo-institucional);
+}
+
+a:hover {
+    opacity: 0.8;
+}
+
+.seccion {
+    padding: 60px 0;
+}
+
+.fondo-alterno {
+    background-color: var(--color-gris-claro);
+}
+
+/* Encabezado y Navegación */
+header {
+    background-color: var(--color-azul-institucional);
+    color: var(--color-blanco);
+    padding: 15px 0;
+    position: fixed; /* Para que quede fijo al hacer scroll */
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Para que esté por encima de otros elementos */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+header .contenedor {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ---- INICIO: Código CSS para el logo ---- */
+
+/* Estilos para el contenedor del logo (el enlace <a>) */
+header .logo-contenedor {
+    display: flex;
+    align-items: center;
+    /* Elimina el subrayado del enlace si lo tuviera */
+    text-decoration: none; 
+}
+
+/* Estilos para la imagen del logo */
+header .logo-contenedor img {
+    /* Define la altura del logo. El ancho se ajustará automáticamente */
+    height: 50px;
+    width: auto; /* Mantiene la proporción de la imagen */
+    transition: transform 0.3s ease;
+}
+
+/* Pequeño efecto al pasar el mouse sobre el logo */
+header .logo-contenedor:hover img {
+    transform: scale(1.05); /* Agranda ligeramente el logo */
+}
+
+/* ---- FIN: Código CSS para el logo ---- */
+
+header nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    color: var(--color-blanco);
+    font-weight: bold;
+    font-size: 1em;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+header nav ul li a:hover,
+header nav ul li a.activo { /* Clase 'activo' para la sección actual si se implementa con JS */
+    background-color: var(--color-rojo-institucional);
+}
+
+/* Banner de Inicio con Video */
+#banner-inicio {
+    position: relative;
+    height: 100vh; /* Ocupa toda la altura de la pantalla */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-blanco);
+    padding: 0; /* Quitamos el padding de .seccion para el banner */
+    margin-top: 70px; /* Ajustar según la altura del header */
+}
+
+.video-contenedor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1; /* Para que esté detrás del contenido del banner */
+}
+
+.video-contenedor video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cubre todo el contenedor, puede recortar partes del video */
+}
+
+.capa-opacidad {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 51, 102, 0.0); /* Azul institucional con 60% de opacidad */
+    /* Puedes ajustar el color y la opacidad (el último valor, de 0 a 1) */
+}
+
+.contenido-banner {
+    position: relative; /* Para que esté por encima de la capa de opacidad */
+    z-index: 1;
+}
+
+.contenido-banner h2 {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    color: var(--color-blanco);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.contenido-banner p {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+}
+
+.boton-banner {
+    background-color: var(--color-rojo-institucional);
+    color: var(--color-blanco);
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.boton-banner:hover {
+    background-color: #A00000; /* Un rojo un poco más oscuro al pasar el mouse */
+    transform: translateY(-2px);
+    opacity: 1; /* Evitar que la opacidad del 'a' general afecte aquí */
+}
+
+/* Sección Nosotros */
+#nosotros p {
+    font-size: 1.1em;
+    text-align: justify;
+}
+
+/* Sección Oferta Educativa */
+.oferta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Columnas responsivas */
+    gap: 30px; /* Espacio entre los items */
+}
+
+.oferta-item {
+    background-color: var(--color-blanco);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.oferta-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.oferta-item h3 {
+    color: var(--color-rojo-institucional);
+    margin-top: 0;
+    font-size: 1.5em;
+}
+
+/* Sección Contacto */
+#contacto p {
+    font-size: 1.1em;
+    text-align: center;
+}
+
+/* Pie de Página */
+footer {
+    background-color: var(--color-azul-institucional);
+    color: var(--color-gris-claro);
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 40px; /* Espacio antes del footer */
+}
+
+footer p {
+    margin: 5px 0;
+    font-size: 0.9em;
+}
+
+footer a {
+    color: var(--color-gris-claro);
+}
+
+footer a:hover {
+    color: var(--color-rojo-institucional);
+    opacity: 1;
+}
+
+/* ---- Estilos para Botones Principales ---- */
+
+.contenedor-boton {
+    text-align: center; /* Centra el botón horizontalmente */
+    margin-top: 45px;   /* Añade espacio entre la cuadrícula de ofertas y el botón */
+}
+
+.boton-principal {
+    background-color: var(--color-rojo-institucional); /* Usa el rojo institucional */
+    color: var(--color-blanco);
+    padding: 15px 30px;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 5px;
+    display: inline-block; /* Permite aplicar padding y margin correctamente */
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.boton-principal:hover {
+    background-color: #A00000; /* Un rojo un poco más oscuro al pasar el ratón */
+    color: var(--color-blanco); /* Asegura que el texto siga siendo blanco */
+    transform: translateY(-3px); /* Efecto de "levantarse" ligeramente */
+    opacity: 1; /* Sobrescribe la opacidad general de los enlaces */
+}
+
+/* ---- Estilos para el Formulario de Contacto ---- */
+
+.formulario-contacto {
+    max-width: 700px; /* Limita el ancho del formulario para que no sea demasiado extenso en pantallas grandes */
+    margin: 40px auto 0 auto; /* Centra el formulario y le da espacio superior */
+}
+
+.campo-formulario {
+    margin-bottom: 25px; /* Espacio entre cada campo del formulario */
+}
+
+.campo-formulario label {
+    display: block; /* La etiqueta se muestra en su propia línea, encima del campo */
+    margin-bottom: 8px; /* Pequeño espacio entre la etiqueta y el campo */
+    font-weight: bold;
+    font-size: 1.1em;
+    color: var(--color-azul-institucional); /* Color institucional para las etiquetas */
+}
+
+/* Estilo para todos los campos de texto del formulario */
+.campo-formulario input[type="text"],
+.campo-formulario input[type="email"],
+.campo-formulario input[type="tel"] {
+    width: 100%; /* El campo ocupa todo el ancho disponible */
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    color: var(--color-texto-secundario);
+    box-sizing: border-box; /* Importante para que el padding no altere el ancho total */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto visual cuando el usuario hace clic en un campo (estado :focus) */
+.campo-formulario input:focus {
+    border-color: var(--color-rojo-institucional); /* El borde cambia al color rojo */
+    box-shadow: 0 0 8px rgba(192, 0, 0, 0.25); /* Se añade una sutil sombra roja */
+    outline: none; /* Se quita el contorno azul que ponen algunos navegadores por defecto */
+}
+
+/* ---- Estilos para el Popup de Éxito ---- */
+
+.popup-contenedor {
+    position: fixed; /* Se posiciona relativo a la ventana del navegador */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 51, 102, 0.7); /* Fondo azul oscuro semitransparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000; /* Asegura que esté por encima de todo */
+
+    /* Oculto por defecto, con transiciones suaves */
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Clase que se añade con JS para mostrar el popup */
+.popup-contenedor.visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup-contenido {
+    background-color: var(--color-blanco);
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 450px;
+    width: 90%;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+
+    /* Animación de entrada */
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.popup-contenedor.visible .popup-contenido {
+    transform: scale(1);
+}
+
+.popup-icono {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+}
+
+.popup-contenido h2 {
+    color: var(--color-azul-institucional);
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.popup-contenido p {
+    font-size: 1.1em;
+    color: var(--color-texto-secundario);
+    margin-bottom: 30px;
+}
+
+/* Ajustes para pantallas más pequeñas (Ejemplo básico de responsividad) */
+@media (max-width: 768px) {
+    header .contenedor {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    header nav ul {
+        margin-top: 15px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header nav ul li {
+        margin: 10px 0;
+    }
+
+    #banner-inicio {
+        /* Ajustar el margen superior ya que el header es más alto en móvil */
+        margin-top: 150px; /* Ajustar este valor según sea necesario */
+        height: auto; /* Altura automática para contenido */
+        padding-top: 80px; /* Espacio para el contenido */
+        padding-bottom: 80px;
+    }
+
+
+    .contenido-banner h2 {
+        font-size: 2.5em;
+    }
+
+    .contenido-banner p {
+        font-size: 1.2em;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    .oferta-grid {
+        grid-template-columns: 1fr; /* Una columna en móviles */
+    }
+}
+
+@media (max-width: 480px) {
+    .contenido-banner h2 {
+        font-size: 2em;
+    }
+
+    .contenido-banner p {
+        font-size: 1em;
+    }
+
+    .boton-banner {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+
+    #banner-inicio {
+         margin-top: 180px; /* Ajustar este valor si es necesario */
+    }
+}
